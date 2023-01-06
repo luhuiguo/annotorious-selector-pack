@@ -72,7 +72,7 @@ export default class RubberbandHorizontalLine {
     this.group.style.display = null;
 
     this.mousepos = xy;
-    //console.log(xy);
+
     const rubberband = [ ...this.points, xy[0], this.points[1]];
     
     this.setPoints(rubberband);

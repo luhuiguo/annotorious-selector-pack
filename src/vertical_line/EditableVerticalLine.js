@@ -148,10 +148,10 @@ export default class EditableVerticalLine extends EditableShape {
         const handleIdx = this.handles.indexOf(this.grabbedElem);
 
         const updatedPoints = getPoints(this.shape).map((pt, idx) =>
-          (idx === handleIdx) ? pos : {'x':pt[0].value, 'y':pt[1].value});
+          (idx === handleIdx) ? {'x':pt[0].value, 'y':pos.y} : {'x':pt[0].value, 'y':pt[1].value});
 
         this.setPoints(updatedPoints);
-        this.setHandleXY(this.handles[handleIdx], pos.x, pos.y);
+        this.setHandleY(this.handles[handleIdx], pos.y);
 
         this.emit('update',  {
           ...toSVGTarget(this.shape, this.env.image),
@@ -161,6 +161,14 @@ export default class EditableVerticalLine extends EditableShape {
         });
       }
     }
+  }
+
+  setHandleY = (handle, y) => {
+    const inner = handle.querySelector('.a9s-handle-inner');
+    inner.setAttribute('cy', y);
+
+    const outer = handle.querySelector('.a9s-handle-outer');
+    outer.setAttribute('cy', y);
   }
 
   onMouseUp = evt => {

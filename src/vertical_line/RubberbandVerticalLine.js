@@ -73,7 +73,7 @@ export default class RubberbandVerticalLine {
 
     this.mousepos = xy;
     //console.log(xy);
-    const rubberband = [ ...this.points, xy[0], xy[1] ];
+    const rubberband = [ ...this.points, this.points[0], xy[1] ];
     
     this.setPoints(rubberband);
     this.mask.redraw();
@@ -82,7 +82,7 @@ export default class RubberbandVerticalLine {
   addPoint = xy => {
     // Don't add a new point if distance < 2 pixels
     if (this.points.length <= 2) {
-      this.points[2] = xy[0];
+      this.points[2] = this.points[0];
       this.points[3] = xy[1];
       this.setPoints(this.points);
     }

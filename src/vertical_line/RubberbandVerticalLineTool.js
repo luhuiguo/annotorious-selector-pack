@@ -12,15 +12,15 @@ export default class RubberbandVerticalLineTool extends Tool {
 
     this._isDrawing = false;
     
-    document.addEventListener('keydown', evt => {
-      if (evt.key == "z" && evt.ctrlKey) {
-        this.undo();
-      }
+    // document.addEventListener('keydown', evt => {
+    //   if (evt.key == "z" && evt.ctrlKey) {
+    //     this.undo();
+    //   }
       
-      if (evt.key == 'n') {
-        this.newPart();
-      }
-    });  
+    //   if (evt.key == 'n') {
+    //     this.newPart();
+    //   }
+    // });  
   }
 
   startDrawing = (x, y) => {
@@ -90,10 +90,6 @@ export default class RubberbandVerticalLineTool extends Tool {
     }
   }
   
-
-  get isDrawing() {
-    return this._isDrawing;
-  }
 
   get isDrawing() {
     return this._isDrawing;
