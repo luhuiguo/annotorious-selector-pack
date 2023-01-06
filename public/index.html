@@ -25,7 +25,7 @@
         });
 
         Annotorious.SelectorPack(anno, {
-          tools: ['circle', 'ellipse', 'rect', 'freehand', 'polygon', 'line']
+          tools: ['circle', 'ellipse', 'rect', 'freehand', 'polygon', 'line', 'horizontal_line']
         });
 
         var tools = anno.listDrawingTools();
@@ -43,9 +43,57 @@
           anno.setDrawingTool(tool);
         });
 
-        anno.on('createAnnotation', function(a) {
-          console.log('create', a);
+
+        anno.on('startSelection', (point) => {
+          console.log('Start selection', point);
         });
+
+        anno.on('createSelection', async (selection) => {
+          console.log('Created selection', selection);
+
+        });
+
+        anno.on('createAnnotation', (annotation, overrideId) => {
+          console.log('Create annotation', annotation);
+        });
+
+        anno.on('updateAnnotation', (annotation, previous) => {
+          console.log('Update annotation', annotation, previous);
+        });
+
+        anno.on('deleteAnnotation', (annotation) => {
+          console.log('Delete annotation', annotation);
+        });
+
+        // anno.on('mouseEnterAnnotation',  (annotation, element) => {
+        //   console.log('Mouse enter annotation', annotation, element);
+        // });
+      
+        // anno.on('mouseLeaveAnnotation',  (annotation, element) => {
+        //   console.log('Mouse leave annotation', annotation, element);
+        // });
+
+        anno.on('clickAnnotation', (annotation, element) => {
+          console.log('Click annotation', annotation, element);
+        });
+
+        anno.on('selectAnnotation', (annotation, element) => {
+          console.log('Select annotation', annotation, element);
+        });
+
+        anno.on('cancelSelected', (selection) => {
+          console.log('Cancel selected', selection);
+        });
+
+        anno.on('changeSelected', (selection, previous) => {
+          console.log('Change selected', selection, previous);
+        });
+
+        anno.on('changeSelectionTarget', (target) => {
+          console.log('Change selection target', target);
+        });
+
+
       }
     </script>
   </body>

@@ -1,11 +1,11 @@
 import Tool from '@recogito/annotorious/src/tools/Tool';
-import RubberbandLine from './RubberbandLine';
-import EditableLine from './EditableLine';
+import RubberbandHorizontalLine from './RubberbandHorizontalLine';
+import EditableHorizontalLine from './EditableHorizontalLine';
 
 /**
  * A rubberband selector for Line fragments.
  */
-export default class RubberbandLineTool extends Tool {
+export default class RubberbandHorizontalLineTool extends Tool {
 
   constructor(g, config, env) {
     super(g, config, env);
@@ -31,7 +31,7 @@ export default class RubberbandLineTool extends Tool {
       mouseUp: this.onMouseUp,
     });
     
-    this.rubberband = new RubberbandLine([ x, y ], this.g, this.env);
+    this.rubberband = new RubberbandHorizontalLine([ x, y ], this.g, this.env);
   }
 
   stop = () => {
@@ -100,14 +100,14 @@ export default class RubberbandLineTool extends Tool {
   }
 
   createEditableShape = annotation => 
-    new EditableLine(annotation, this.g, this.config, this.env);
+    new EditableHorizontalLine(annotation, this.g, this.config, this.env);
 
 }
 
-RubberbandLineTool.identifier = 'line';
+RubberbandHorizontalLineTool.identifier = 'horizontal_line';
 
-RubberbandLineTool.supports = annotation => {
+RubberbandHorizontalLineTool.supports = annotation => {
   const selector = annotation.selector('SvgSelector');
   if (selector)
-    return selector.value?.match(/^<svg.*<line/g);
+    return selector.value?.match(/^<svg.*<line./g);
 }

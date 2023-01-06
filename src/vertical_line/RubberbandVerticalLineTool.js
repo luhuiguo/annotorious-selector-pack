@@ -1,11 +1,11 @@
 import Tool from '@recogito/annotorious/src/tools/Tool';
-import RubberbandLine from './RubberbandLine';
-import EditableLine from './EditableLine';
+import RubberbandVerticalLine from './RubberbandVerticalLine';
+import EditableVerticalLine from './EditableVerticalLine';
 
 /**
  * A rubberband selector for Line fragments.
  */
-export default class RubberbandLineTool extends Tool {
+export default class RubberbandVerticalLineTool extends Tool {
 
   constructor(g, config, env) {
     super(g, config, env);
@@ -17,9 +17,9 @@ export default class RubberbandLineTool extends Tool {
         this.undo();
       }
       
-      // if (evt.key == 'n') {
-      //   this.newPart();
-      // }
+      if (evt.key == 'n') {
+        this.newPart();
+      }
     });  
   }
 
@@ -31,7 +31,7 @@ export default class RubberbandLineTool extends Tool {
       mouseUp: this.onMouseUp,
     });
     
-    this.rubberband = new RubberbandLine([ x, y ], this.g, this.env);
+    this.rubberband = new RubberbandVerticalLine([ x, y ], this.g, this.env);
   }
 
   stop = () => {
@@ -100,13 +100,13 @@ export default class RubberbandLineTool extends Tool {
   }
 
   createEditableShape = annotation => 
-    new EditableLine(annotation, this.g, this.config, this.env);
+    new EditableVerticalLine(annotation, this.g, this.config, this.env);
 
 }
 
-RubberbandLineTool.identifier = 'line';
+RubberbandVerticalLineTool.identifier = 'vertical_line';
 
-RubberbandLineTool.supports = annotation => {
+RubberbandVerticalLineTool.supports = annotation => {
   const selector = annotation.selector('SvgSelector');
   if (selector)
     return selector.value?.match(/^<svg.*<line/g);

@@ -1,5 +1,5 @@
 {
-  "name": "@recogito/annotorious-selector-pack",
+  "name": "@luhuiguo/annotorious-selector-pack",
   "version": "0.5.4",
   "description": "Additional selection tools for Annotorious and the Annotorious OpenSeadragon plugin",
   "main": "dist/annotorious-selector-pack.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/recogito/annotorious-selector-pack.git"
+    "url": "git+https://github.com/luhuiguo/annotorious-selector-pack.git"
   },
   "author": "",
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/recogito/annotorious-selector-pack/issues"
+    "url": "https://github.com/luhuiguo/annotorious-selector-pack/issues"
   },
-  "homepage": "https://github.com/recogito/annotorious-selector-pack#readme",
+  "homepage": "https://github.com/luhuiguo/annotorious-selector-pack#readme",
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.14.5",
     "@babel/preset-env": "^7.14.7",
